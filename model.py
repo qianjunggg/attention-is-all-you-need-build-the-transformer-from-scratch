@@ -31,11 +31,30 @@ def build_id_to_token_vocab(token_to_id):
 
     return id_to_token
 
-# Step 3 - encode_sentence_to_ids (not yet solved)
-# TODO: implement
+# Step 3 - encode_sentence_to_ids
+def encode_sentence_to_ids(sentence, token_to_id, unk_token='<unk>'):
+    tokens = sentence.split()
 
-# Step 4 - decode_ids_to_tokens (not yet solved)
-# TODO: implement
+    id_list = []
+
+    for token in tokens:
+        if token in token_to_id.keys():
+            id_list.append(token_to_id[token])
+        else:
+            id_list.append(token_to_id[unk_token])
+    return id_list
+
+# Step 4 - decode_ids_to_tokens
+def decode_ids_to_tokens(ids, id_to_token):
+    ordered_id_token = []
+
+    if not ids:
+        return []
+
+    for i in ids:
+        ordered_id_token.append(id_to_token[i])
+    
+    return ordered_id_token
 
 # Step 5 - pad_id_sequence (not yet solved)
 # TODO: implement
