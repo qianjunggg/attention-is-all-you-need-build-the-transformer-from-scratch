@@ -80,8 +80,11 @@ import torch
 def scale_embeddings_by_sqrt_d_model(embeddings, d_model):
     return embeddings * math.sqrt(d_model)
 
-# Step 8 - compute_positional_div_term (not yet solved)
-# TODO: implement
+# Step 8 - compute_positional_div_term
+import torch
+
+def compute_positional_div_term(d_model):
+    return 10000 ** (-torch.arange(0, d_model, 2).float() / d_model)
 
 # Step 9 - build_position_index_column (not yet solved)
 # TODO: implement
